@@ -20,12 +20,12 @@
     ],
     "autoload": {
         "psr-4": {
-            "Snilius\\Twig\\": "src/"
+            "aaronshuman\\Twig\\": "src/"
         }
     },
     "autoload-dev": {
         "psr-4": {
-            "Snilius\\Twig\\Tests\\": "test/"
+            "aaronshuman\\Twig\\Tests\\": "test/"
         },
         "psr-0": {
             "": "test/"
