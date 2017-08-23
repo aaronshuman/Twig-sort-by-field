@@ -1,6 +1,6 @@
 {
-    "name": "snilius/twig-sort-by-field",
-    "description": "A Twig Extension filter to sort an array of entries (objects or arrays) by the specified field",
+    "name": "aaronshuman/twig-sort-by-field",
+    "description": "A Twig Extension filter to sort an array of entries (objects or arrays) by the specified field with case independent sort",
     "require-dev": {
         "php": ">=5.5.9",
         "phpunit/phpunit": "~4.5",
@@ -12,6 +12,10 @@
         {
             "name": "Victor Häggqvist",
             "email": "victor@snilius.com"
+        },
+        {
+            "name": "Aaron Shuman",
+            "email": "shuman76@gmail.com"
         }
     ],
     "autoload": {

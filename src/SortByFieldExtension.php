@@ -1,6 +1,6 @@
 <?php
 
-namespace Snilius\Twig;
+namespace aaronshuman\Twig;
 
 use Exception;
 
@@ -12,6 +12,17 @@ use Exception;
  * The base of the filter is borrowed from https://github.com/dannynimmo/craftcms-sortbyfield
  *
  * I have extended it to also sort array structures
+ */
+
+/*
+ * Modified by: Aaron Shuman
+ * Date: 8/23/17
+ * Time:2:30
+ *
+ * Extended to allow for case independent sort
+ *
+ *
+ *
  */
 class SortByFieldExtension extends \Twig_Extension {
 
