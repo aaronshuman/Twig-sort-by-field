@@ -5,7 +5,7 @@
  * Time: 3:12 AM
  */
 
-use Snilius\Twig\SortByFieldExtension;
+use aaronshuman\Twig\SortByFieldExtension;
 
 require_once __DIR__.'/../vendor/autoload.php';
 
