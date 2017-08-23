@@ -30,7 +30,11 @@ class SortByFieldExtension extends \Twig_Extension {
      *
      * Usage: {% for entry in master.entries|sortbyfield('ordering', 'desc') %}
      */
-    public function sortByFieldFilter($content, $sort_by = null, $direction = 'asc') {
+    public function sortByFieldFilter($content, $sort_by = null, $direction = 'asc', $sortType = null, $ignoreCase = null) {
+
+
+
+
 
         if (is_a($content, 'Doctrine\Common\Collections\Collection')) {
             $content = $content->toArray();
@@ -48,7 +52,7 @@ class SortByFieldExtension extends \Twig_Extension {
             // Unfortunately have to suppress warnings here due to __get function
             // causing usort to think that the array has been modified:
             // usort(): Array was modified by the user comparison function
-            @usort($content, function ($a, $b) use ($sort_by, $direction) {
+            @usort($content, function ($a, $b) use ($sort_by, $direction, $sortType, $ignoreCase) {
                 $flip = ($direction === 'desc') ? -1 : 1;
 
                 if (is_array($a))
@@ -65,12 +69,25 @@ class SortByFieldExtension extends \Twig_Extension {
                 else
                     $b_sort_value = $b->$sort_by;
 
-                if ($a_sort_value == $b_sort_value) {
-                    return 0;
-                } else if ($a_sort_value > $b_sort_value) {
-                    return (1 * $flip);
-                } else {
-                    return (-1 * $flip);
+                if ($sortType =="string" && $ignoreCase == true){
+
+                    if (strtolower($a_sort_value) == strtolower($b_sort_value)) {
+                        return 0;
+                    } else if (strtolower($a_sort_value) > strtolower($b_sort_value)) {
+                        return (1 * $flip);
+                    } else {
+                        return (-1 * $flip);
+                    }
+                }
+
+                else {
+                    if ($a_sort_value == $b_sort_value) {
+                        return 0;
+                    } else if ($a_sort_value > $b_sort_value) {
+                        return (1 * $flip);
+                    } else {
+                        return (-1 * $flip);
+                    }
                 }
             });
         }
